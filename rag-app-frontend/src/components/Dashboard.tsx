@@ -163,23 +163,23 @@ export default function Dashboard() {
   };
 
   return (
-    <div className="flex h-screen bg-[#f8fafc] font-sans text-slate-900 overflow-hidden">
+    <div className="flex h-screen bg-[#050B2E] font-sans text-slate-100 overflow-hidden">
       
       {/* Left Panel - Sidebar Card */}
-      <div className="w-[300px] bg-slate-50 border-r border-slate-200/80 flex flex-col z-10 flex-shrink-0 shadow-[4px_0_24px_rgba(0,0,0,0.02)] transition-all">
+      <div className="w-[300px] bg-[#081B5C] border-r border-[#06B6D4]/20 flex flex-col z-10 flex-shrink-0 shadow-[4px_0_24px_rgba(0,0,0,0.2)] transition-all">
         
         {/* Header & New Chat Button */}
-        <div className="p-6 bg-slate-50 relative">
+        <div className="p-6 bg-[#081B5C] relative">
           <div className="flex justify-between items-center mb-6">
             <div className="flex items-center space-x-2.5">
-              <div className="w-8 h-8 rounded-xl bg-gradient-to-tr from-blue-600 to-indigo-500 flex items-center justify-center shadow-md shadow-blue-500/20">
+              <div className="w-8 h-8 rounded-xl bg-gradient-to-tr from-[#123B9A] to-[#06B6D4] flex items-center justify-center shadow-md shadow-[#06B6D4]/20">
                 <Hammer size={16} strokeWidth={2.5} className="text-white" />
               </div>
-              <h2 className="text-[18px] font-bold tracking-tight text-slate-800">BigHammer AI</h2>
+              <h2 className="text-[18px] font-bold tracking-tight text-white">BigHammer AI</h2>
             </div>
             <button 
               onClick={handleLogout} 
-              className="text-slate-400 hover:text-red-500 transition-colors p-2 hover:bg-slate-100 rounded-lg" 
+              className="text-slate-400 hover:text-red-400 transition-colors p-2 hover:bg-white/10 rounded-lg" 
               title="Logout"
             >
               <LogOut size={18} />
@@ -188,7 +188,7 @@ export default function Dashboard() {
           
           <button 
             onClick={handleNewChat}
-            className="w-full flex items-center justify-center space-x-2 bg-gradient-to-r from-blue-600 to-indigo-600 hover:from-blue-700 hover:to-indigo-700 text-white py-3 px-4 rounded-xl font-semibold transition-all duration-200 shadow-md shadow-blue-600/20 hover:shadow-lg hover:-translate-y-0.5 active:translate-y-0"
+            className="w-full flex items-center justify-center space-x-2 bg-gradient-to-r from-[#2563EB] to-[#06B6D4] hover:from-[#1d4ed8] hover:to-[#0891b2] text-white py-3 px-4 rounded-xl font-semibold transition-all duration-200 shadow-md shadow-[#06B6D4]/20 hover:shadow-[0_0_15px_rgba(6,182,212,0.4)] hover:-translate-y-0.5 active:translate-y-0"
           >
             <Plus size={18} />
             <span>New Chat</span>
@@ -197,12 +197,12 @@ export default function Dashboard() {
         
         <div className="flex-1 overflow-y-auto custom-scrollbar">
           {/* Knowledge Base Section */}
-          <div className="px-6 pb-6 border-b border-slate-200/60">
+          <div className="px-6 pb-6 border-b border-[#06B6D4]/20">
             <h3 className="text-[11px] font-bold text-slate-400 uppercase tracking-widest mb-4">Knowledge Base</h3>
             
-            <label className="flex flex-col items-center justify-center space-y-1 w-full py-4 px-3 border-2 border-dashed border-slate-200 hover:border-indigo-400 hover:bg-indigo-50/50 rounded-xl cursor-pointer transition-all duration-200 bg-white mb-5 group shadow-sm">
-              <CloudUpload size={20} className="text-slate-400 group-hover:text-indigo-500 group-hover:-translate-y-0.5 transition-all duration-200" />
-              <span className="text-xs font-semibold text-slate-600 group-hover:text-indigo-700 transition-colors">
+            <label className="flex flex-col items-center justify-center space-y-1 w-full py-4 px-3 border-2 border-dashed border-[#123B9A] hover:border-[#06B6D4] hover:bg-[#123B9A]/30 rounded-xl cursor-pointer transition-all duration-200 bg-[#050B2E]/50 mb-5 group shadow-sm">
+              <CloudUpload size={20} className="text-slate-400 group-hover:text-[#06B6D4] group-hover:-translate-y-0.5 transition-all duration-200" />
+              <span className="text-xs font-semibold text-slate-400 group-hover:text-[#06B6D4] transition-colors">
                 {isUploading ? 'Uploading...' : 'Upload Document'}
               </span>
               <input type="file" className="hidden" accept=".pdf,.txt,.docx" onChange={handleFileUpload} disabled={isUploading} />
@@ -210,20 +210,20 @@ export default function Dashboard() {
 
             <div className="space-y-2">
               {documents.map(doc => (
-                <div key={doc.id} className="flex items-center justify-between p-2.5 bg-white border border-slate-100 hover:border-slate-200 hover:shadow-sm rounded-lg group transition-all duration-200">
+                <div key={doc.id} className="flex items-center justify-between p-2.5 bg-[#050B2E]/50 border border-transparent hover:border-[#06B6D4]/30 hover:bg-[#050B2E]/80 hover:shadow-sm rounded-lg group transition-all duration-200">
                   <div className="flex items-center space-x-3 overflow-hidden">
-                    <div className="bg-indigo-50 p-1.5 rounded-md text-indigo-500">
+                    <div className="bg-[#123B9A]/30 p-1.5 rounded-md text-[#06B6D4]">
                       <FileText size={14} />
                     </div>
-                    <span className="text-[13px] text-slate-700 truncate font-medium">{doc.filename}</span>
+                    <span className="text-[13px] text-slate-200 truncate font-medium">{doc.filename}</span>
                   </div>
-                  <button onClick={() => handleDeleteDoc(doc.id)} className="text-slate-300 hover:text-red-500 opacity-0 group-hover:opacity-100 transition-opacity p-1.5 hover:bg-red-50 rounded-md">
+                  <button onClick={() => handleDeleteDoc(doc.id)} className="text-slate-500 hover:text-red-400 opacity-0 group-hover:opacity-100 transition-opacity p-1.5 hover:bg-red-900/30 rounded-md">
                     <Trash2 size={14} />
                   </button>
                 </div>
               ))}
               {documents.length === 0 && (
-                <p className="text-center text-slate-400 text-xs mt-3 italic font-medium bg-slate-50 py-3 rounded-lg border border-slate-100">No documents uploaded.</p>
+                <p className="text-center text-slate-500 text-xs mt-3 italic font-medium bg-[#050B2E]/30 py-3 rounded-lg border border-transparent">No documents uploaded.</p>
               )}
             </div>
           </div>
@@ -238,16 +238,16 @@ export default function Dashboard() {
                   onClick={() => loadSessionHistory(session.id)}
                   className={`w-full flex items-center space-x-3 py-2.5 px-3 rounded-lg transition-all duration-200 text-left ${
                     activeSessionId === session.id 
-                    ? 'bg-indigo-50 text-indigo-700 font-semibold' 
-                    : 'bg-transparent hover:bg-slate-100 text-slate-600 font-medium'
+                    ? 'bg-[#123B9A]/40 text-[#06B6D4] font-semibold border border-[#06B6D4]/30' 
+                    : 'bg-transparent hover:bg-[#050B2E]/50 text-slate-300 font-medium border border-transparent hover:border-[#06B6D4]/10'
                   }`}
                 >
-                  <MessageSquare size={16} className={activeSessionId === session.id ? 'text-indigo-500 flex-shrink-0' : 'text-slate-400 flex-shrink-0'} />
+                  <MessageSquare size={16} className={activeSessionId === session.id ? 'text-[#06B6D4] flex-shrink-0' : 'text-slate-400 flex-shrink-0'} />
                   <span className="text-[13px] truncate">{session.title}</span>
                 </button>
               ))}
               {sessions.length === 0 && (
-                <p className="text-center text-slate-400 text-xs mt-3 italic font-medium bg-slate-50 py-3 rounded-lg border border-slate-100">No past sessions.</p>
+                <p className="text-center text-slate-500 text-xs mt-3 italic font-medium bg-[#050B2E]/30 py-3 rounded-lg border border-transparent">No past sessions.</p>
               )}
             </div>
           </div>
@@ -255,18 +255,18 @@ export default function Dashboard() {
       </div>
 
       {/* Right Panel - Main Chat Workspace */}
-      <div className="flex-1 flex flex-col bg-white relative">
+      <div className="flex-1 flex flex-col bg-[#050B2E] relative">
         {/* Subtle background gradient tint */}
-        <div className="absolute inset-0 bg-gradient-to-br from-blue-50/30 via-transparent to-purple-50/20 pointer-events-none" />
+        <div className="absolute inset-0 bg-gradient-to-br from-[#06B6D4]/5 via-transparent to-[#7C3AED]/5 pointer-events-none" />
         
         <div className="flex-1 overflow-y-auto p-4 md:p-8 space-y-8 custom-scrollbar z-10">
           {messages.length === 0 ? (
-            <div className="h-full flex flex-col items-center justify-center text-slate-800 max-w-md mx-auto text-center">
-              <div className="w-20 h-20 bg-gradient-to-tr from-blue-100 to-indigo-50 rounded-full flex items-center justify-center mb-6 shadow-inner border border-blue-100/50">
-                <MessageSquare size={36} strokeWidth={1.5} className="text-indigo-500" />
+            <div className="h-full flex flex-col items-center justify-center text-slate-100 max-w-md mx-auto text-center">
+              <div className="w-20 h-20 bg-gradient-to-tr from-[#123B9A] to-[#081B5C] rounded-full flex items-center justify-center mb-6 shadow-[0_0_30px_rgba(6,182,212,0.2)] border border-[#06B6D4]/20">
+                <MessageSquare size={36} strokeWidth={1.5} className="text-[#06B6D4]" />
               </div>
-              <h2 className="text-2xl font-bold mb-3 tracking-tight text-slate-900">Welcome to BigHammer AI</h2>
-              <p className="text-slate-500 text-[15px] font-medium leading-relaxed">
+              <h2 className="text-2xl font-bold mb-3 tracking-tight text-white">Welcome to BigHammer AI</h2>
+              <p className="text-slate-400 text-[15px] font-medium leading-relaxed">
                 Upload a document to your knowledge base and ask a question to begin a new intelligent chat session.
               </p>
             </div>
@@ -276,14 +276,14 @@ export default function Dashboard() {
                 <div key={idx} className={`flex ${msg.isUser ? 'justify-end' : 'justify-start'} mb-8`}>
                   <div className={`max-w-[85%] md:max-w-[75%] rounded-2xl p-5 md:p-6 shadow-sm ${
                     msg.isUser 
-                    ? 'bg-gradient-to-br from-blue-600 to-indigo-600 text-white rounded-br-sm shadow-blue-500/10' 
-                    : 'bg-white border border-slate-200/60 text-slate-800 rounded-bl-sm shadow-[0_4px_20px_rgba(0,0,0,0.03)]'
+                    ? 'bg-gradient-to-br from-[#123B9A] to-[#06B6D4] text-white rounded-br-sm shadow-[#06B6D4]/10' 
+                    : 'bg-[#081B5C]/80 border border-[#06B6D4]/20 text-slate-200 rounded-bl-sm shadow-[0_4px_20px_rgba(0,0,0,0.2)] backdrop-blur-sm'
                   }`}>
                     
                     {msg.isUser ? (
                       <p className="whitespace-pre-wrap leading-relaxed text-[15px] font-medium">{msg.text}</p>
                     ) : (
-                      <div className="prose prose-slate prose-sm max-w-none prose-p:leading-relaxed prose-headings:font-semibold">
+                      <div className="prose prose-invert prose-slate prose-sm max-w-none prose-p:leading-relaxed prose-headings:font-semibold">
                         <ReactMarkdown remarkPlugins={[remarkGfm]}>
                           {msg.text}
                         </ReactMarkdown>
@@ -294,7 +294,7 @@ export default function Dashboard() {
                     {msg.sources && msg.sources.length > 0 && (
                       <div className="mt-6 pt-5 border-t border-slate-100">
                         <p className="text-[10px] font-bold text-slate-400 uppercase tracking-widest mb-3">Sources Referenced</p>
-                        <div className="bg-slate-50/50 p-4 rounded-xl border border-slate-100 transition-all duration-200 hover:border-slate-200 hover:bg-slate-50">
+                        <div className="bg-[#050B2E]/50 p-4 rounded-xl border border-[#06B6D4]/10 transition-all duration-200 hover:border-[#06B6D4]/30 hover:bg-[#050B2E]/80">
                           {(() => {
                             const isExpanded = expandedSources[`${idx}-combined`];
                             const combinedSources = msg.sources.join('\n\n---\n\n');
@@ -302,12 +302,12 @@ export default function Dashboard() {
                               <div className="flex flex-col">
                                 <button 
                                   onClick={() => toggleSource(idx, 'combined')}
-                                  className="text-[12px] font-semibold text-indigo-500 hover:text-indigo-700 transition-colors flex items-center w-max"
+                                  className="text-[12px] font-semibold text-[#06B6D4] hover:text-white transition-colors flex items-center w-max"
                                 >
                                   {isExpanded ? 'Hide source context' : `View retrieved context (${msg.sources.length} chunks)`}
                                 </button>
                                 {isExpanded && (
-                                  <div className="mt-4 pt-4 border-t border-slate-200/60 prose prose-xs max-w-none text-slate-500">
+                                  <div className="mt-4 pt-4 border-t border-[#06B6D4]/20 prose prose-invert prose-xs max-w-none text-slate-400">
                                     <ReactMarkdown remarkPlugins={[remarkGfm]}>
                                       {combinedSources}
                                     </ReactMarkdown>
@@ -326,10 +326,10 @@ export default function Dashboard() {
               {/* Loading Indicator */}
               {isChatting && (
                 <div className="flex justify-start mb-8">
-                  <div className="max-w-[75%] rounded-2xl rounded-bl-sm p-6 bg-white border border-slate-200/60 shadow-[0_4px_20px_rgba(0,0,0,0.03)] flex items-center space-x-2">
-                    <div className="w-2.5 h-2.5 bg-indigo-400/80 rounded-full animate-bounce" style={{ animationDelay: '0ms' }}></div>
-                    <div className="w-2.5 h-2.5 bg-indigo-400/80 rounded-full animate-bounce" style={{ animationDelay: '150ms' }}></div>
-                    <div className="w-2.5 h-2.5 bg-indigo-400/80 rounded-full animate-bounce" style={{ animationDelay: '300ms' }}></div>
+                  <div className="max-w-[75%] rounded-2xl rounded-bl-sm p-6 bg-[#081B5C]/80 border border-[#06B6D4]/20 shadow-[0_4px_20px_rgba(0,0,0,0.2)] backdrop-blur-sm flex items-center space-x-2">
+                    <div className="w-2.5 h-2.5 bg-[#06B6D4]/80 rounded-full animate-bounce" style={{ animationDelay: '0ms' }}></div>
+                    <div className="w-2.5 h-2.5 bg-[#06B6D4]/80 rounded-full animate-bounce" style={{ animationDelay: '150ms' }}></div>
+                    <div className="w-2.5 h-2.5 bg-[#06B6D4]/80 rounded-full animate-bounce" style={{ animationDelay: '300ms' }}></div>
                   </div>
                 </div>
               )}
@@ -339,13 +339,13 @@ export default function Dashboard() {
         </div>
 
         {/* Input Area */}
-        <div className="w-full pb-8 pt-4 flex-shrink-0 z-20 px-4 md:px-8 bg-gradient-to-t from-white via-white to-transparent">
+        <div className="w-full pb-8 pt-4 flex-shrink-0 z-20 px-4 md:px-8 bg-gradient-to-t from-[#050B2E] via-[#050B2E] to-transparent">
           <div className="max-w-4xl mx-auto w-full relative flex flex-col items-center">
             
-            <form onSubmit={handleSendMessage} className="w-full relative flex items-center bg-white shadow-[0_8px_30px_rgb(0,0,0,0.06)] rounded-full border border-slate-200 focus-within:ring-4 focus-within:ring-indigo-500/10 focus-within:border-indigo-300 transition-all duration-300">
+            <form onSubmit={handleSendMessage} className="w-full relative flex items-center bg-[#081B5C]/90 shadow-[0_8px_30px_rgba(0,0,0,0.4)] rounded-full border border-[#06B6D4]/30 focus-within:ring-4 focus-within:ring-[#06B6D4]/20 focus-within:border-[#06B6D4] backdrop-blur-md transition-all duration-300">
               <input
                 type="text"
-                className="flex-1 bg-transparent px-8 py-5 outline-none text-slate-800 placeholder-slate-400 text-[15px] font-medium"
+                className="flex-1 bg-transparent px-8 py-5 outline-none text-white placeholder-slate-400 text-[15px] font-medium"
                 placeholder="Ask BigHammer AI..."
                 value={inputMessage}
                 onChange={(e) => setInputMessage(e.target.value)}
@@ -357,8 +357,8 @@ export default function Dashboard() {
                   disabled={isChatting || !inputMessage.trim()}
                   className={`p-3 rounded-full transition-all duration-200 flex items-center justify-center shadow-sm ${
                     inputMessage.trim() && !isChatting 
-                    ? 'bg-gradient-to-r from-blue-600 to-indigo-600 hover:from-blue-700 hover:to-indigo-700 text-white hover:shadow-md hover:scale-105 active:scale-95' 
-                    : 'bg-slate-100 text-slate-400 cursor-not-allowed'
+                    ? 'bg-gradient-to-r from-[#2563EB] to-[#06B6D4] text-white hover:shadow-[0_0_15px_rgba(6,182,212,0.4)] hover:scale-105 active:scale-95' 
+                    : 'bg-[#123B9A]/30 text-slate-500 cursor-not-allowed'
                   }`}
                 >
                   <Send size={20} className="ml-0.5 transform -rotate-12" />

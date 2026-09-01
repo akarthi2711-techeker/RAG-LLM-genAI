@@ -47,29 +47,29 @@ export default function Login() {
   };
 
   return (
-    <div className="min-h-screen flex items-center justify-center relative overflow-hidden bg-[#f8fafc]">
+    <div className="min-h-screen flex items-center justify-center relative overflow-hidden bg-[#050B2E]">
       {/* Decorative gradient blobs */}
-      <div className="absolute top-[-10%] left-[-10%] w-[500px] h-[500px] rounded-full bg-blue-400/20 blur-[120px] pointer-events-none" />
-      <div className="absolute bottom-[-10%] right-[-10%] w-[600px] h-[600px] rounded-full bg-violet-400/10 blur-[150px] pointer-events-none" />
+      <div className="absolute top-[-10%] left-[-10%] w-[500px] h-[500px] rounded-full bg-[#06B6D4]/10 blur-[120px] pointer-events-none" />
+      <div className="absolute bottom-[-10%] right-[-10%] w-[600px] h-[600px] rounded-full bg-[#7C3AED]/10 blur-[150px] pointer-events-none" />
       
       <div className="max-w-md w-full mx-4 relative z-10">
-        <div className="bg-white/80 backdrop-blur-2xl rounded-3xl shadow-[0_8px_30px_rgb(0,0,0,0.04)] border border-white/60 p-8 sm:p-10 transition-all duration-300">
+        <div className="bg-[#081B5C]/80 backdrop-blur-2xl rounded-[2rem] shadow-[0_8px_40px_rgb(0,0,0,0.4)] border border-[#06B6D4]/20 p-8 sm:p-10 transition-all duration-300">
           
           <div className="flex flex-col items-center mb-8">
-            <div className="w-14 h-14 rounded-2xl bg-gradient-to-tr from-blue-600 to-indigo-500 flex items-center justify-center mb-5 shadow-lg shadow-blue-500/30">
+            <div className="w-14 h-14 rounded-2xl bg-gradient-to-tr from-[#123B9A] to-[#06B6D4] flex items-center justify-center mb-5 shadow-lg shadow-[#06B6D4]/20">
               <Hammer size={28} className="text-white" strokeWidth={2.5} />
             </div>
-            <h2 className="text-3xl font-extrabold text-slate-900 tracking-tight">
+            <h2 className="text-3xl font-extrabold text-white tracking-tight">
               BigHammer AI
             </h2>
-            <p className="mt-2 text-sm font-medium text-slate-500">
+            <p className="mt-2 text-sm font-medium text-slate-300">
               {isRegistering ? 'Create your new AI workspace account' : 'Welcome back, sign in to your workspace'}
             </p>
           </div>
 
           <form className="space-y-5" onSubmit={handleSubmit}>
             {error && (
-              <div className="bg-red-50 text-red-600 text-sm p-3 rounded-xl border border-red-100 text-center font-medium animate-pulse">
+              <div className="bg-red-900/30 text-red-300 text-sm p-3 rounded-xl border border-red-800/50 text-center font-medium animate-pulse">
                 {error}
               </div>
             )}
@@ -81,14 +81,14 @@ export default function Login() {
                   name="username"
                   type="text"
                   required
-                  className="peer w-full px-4 pt-6 pb-2 border border-slate-200 rounded-xl text-slate-900 bg-white/50 focus:bg-white focus:outline-none focus:ring-2 focus:ring-indigo-500/50 focus:border-indigo-500 transition-all duration-200"
+                  className="peer w-full px-4 pt-6 pb-2 border border-[#123B9A] rounded-xl text-white bg-[#050B2E]/50 focus:bg-[#050B2E] focus:outline-none focus:ring-2 focus:ring-[#06B6D4]/50 focus:border-[#06B6D4] transition-all duration-200"
                   placeholder=" "
                   value={username}
                   onChange={(e) => setUsername(e.target.value)}
                 />
                 <label 
                   htmlFor="username"
-                  className="absolute text-sm font-medium text-slate-500 duration-200 transform -translate-y-3 scale-75 top-4 z-10 origin-[0] left-4 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-3 peer-focus:text-indigo-600 cursor-text"
+                  className="absolute text-sm font-medium text-slate-400 duration-200 transform -translate-y-3 scale-75 top-4 z-10 origin-[0] left-4 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-3 peer-focus:text-[#06B6D4] cursor-text"
                 >
                   Username
                 </label>
@@ -100,14 +100,14 @@ export default function Login() {
                   name="password"
                   type="password"
                   required
-                  className="peer w-full px-4 pt-6 pb-2 border border-slate-200 rounded-xl text-slate-900 bg-white/50 focus:bg-white focus:outline-none focus:ring-2 focus:ring-indigo-500/50 focus:border-indigo-500 transition-all duration-200"
+                  className="peer w-full px-4 pt-6 pb-2 border border-[#123B9A] rounded-xl text-white bg-[#050B2E]/50 focus:bg-[#050B2E] focus:outline-none focus:ring-2 focus:ring-[#06B6D4]/50 focus:border-[#06B6D4] transition-all duration-200"
                   placeholder=" "
                   value={password}
                   onChange={(e) => setPassword(e.target.value)}
                 />
                 <label 
                   htmlFor="password"
-                  className="absolute text-sm font-medium text-slate-500 duration-200 transform -translate-y-3 scale-75 top-4 z-10 origin-[0] left-4 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-3 peer-focus:text-indigo-600 cursor-text"
+                  className="absolute text-sm font-medium text-slate-400 duration-200 transform -translate-y-3 scale-75 top-4 z-10 origin-[0] left-4 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-3 peer-focus:text-[#06B6D4] cursor-text"
                 >
                   Password
                 </label>
@@ -117,7 +117,7 @@ export default function Login() {
             <div className="pt-2">
               <button
                 type="submit"
-                className="w-full flex justify-center py-3.5 px-4 border border-transparent rounded-xl text-sm font-semibold text-white bg-gradient-to-r from-blue-600 to-indigo-600 hover:from-blue-700 hover:to-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500 shadow-md hover:shadow-lg transform transition-all duration-200 hover:-translate-y-0.5 active:translate-y-0 active:shadow-sm"
+                className="w-full flex justify-center py-3.5 px-4 border border-transparent rounded-xl text-sm font-semibold text-white bg-gradient-to-r from-[#2563EB] to-[#06B6D4] hover:from-[#1d4ed8] hover:to-[#0891b2] focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-[#081B5C] focus:ring-[#06B6D4] shadow-md hover:shadow-[0_0_20px_rgba(6,182,212,0.4)] transform transition-all duration-200 hover:-translate-y-0.5 active:translate-y-0 active:shadow-sm"
               >
                 {isRegistering ? 'Create Account' : 'Sign In'}
               </button>
@@ -126,7 +126,7 @@ export default function Login() {
             <div className="text-center mt-6">
               <button
                 type="button"
-                className="text-indigo-600 hover:text-indigo-500 text-sm font-semibold transition-colors duration-200"
+                className="text-[#06B6D4] hover:text-[#4F46E5] text-sm font-semibold transition-colors duration-200"
                 onClick={() => {
                   setIsRegistering(!isRegistering);
                   setError('');
